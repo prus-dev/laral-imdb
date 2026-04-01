@@ -24,6 +24,7 @@
         <h2><a href="{{ route('home') }}">LaraIMDb</a></h2>
         <nav>
             <a href="{{ route('movies.search') }}">Search</a> |
+            <a href="{{ route('people.index') }}">People</a> |
             <a href="{{ route('watchlist.index') }}">Watchlist</a>
         </nav>
     </header>
