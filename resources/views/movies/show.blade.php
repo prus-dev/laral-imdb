@@ -20,6 +20,39 @@
         </div>
     </div>
 
+    <h2 style="margin-top:30px">Review Integrity Features</h2>
+    <ul class="muted" style="line-height:1.7">
+        <li>Profanity moderation</li>
+        <li>Spam detection</li>
+        <li>Duplicate detection</li>
+        <li>AI-generated spam detection (optional)</li>
+        <li>Review quality scoring</li>
+        <li>Rate limiting</li>
+        <li>Moderator queue</li>
+    </ul>
+
+    <section class="card" style="margin:20px 0">
+        <h3>Write a Review</h3>
+        <form method="POST" action="{{ route('reviews.store') }}" style="display:grid;gap:10px">
+            @csrf
+            <input type="hidden" name="movie_imdb_id" value="{{ $movie['id'] ?? '' }}">
+            <input type="hidden" name="movie_title" value="{{ $movie['primaryTitle'] ?? '' }}">
+            <input type="text" name="author_name" placeholder="Your name (optional)">
+            <textarea name="content" rows="5" minlength="10" maxlength="2000" placeholder="Share what you thought..." required></textarea>
+            <button type="submit" style="width:max-content">Submit Review</button>
+        </form>
+    </section>
+
+    <h3>Approved Reviews</h3>
+    @forelse($reviews as $review)
+        <article class="card" style="margin-bottom:12px">
+            <p style="margin:0 0 8px">{{ $review->content }}</p>
+            <p class="muted" style="margin:0">By {{ $review->author_name ?: 'Anonymous' }} · Quality: {{ $review->quality_score }}/100</p>
+        </article>
+    @empty
+        <p class="muted">No approved reviews yet.</p>
+    @endforelse
+
     <h2 style="margin-top:30px">More Like This</h2>
     <div class="grid">
         @foreach($similar as $item)

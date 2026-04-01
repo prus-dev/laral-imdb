@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\ImdbApiService;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -25,6 +26,7 @@ class MovieController extends Controller
         return view('movies.show', [
             'movie' => $movie,
             'similar' => $imdb->similar($id),
+            'reviews' => Review::query()->where('movie_imdb_id', $id)->where('status', 'approved')->latest()->get(),
         ]);
     }
 }
