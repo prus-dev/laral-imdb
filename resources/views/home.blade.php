@@ -5,7 +5,7 @@
             @php($id = $movie['id'] ?? $movie['tconst'] ?? null)
             @continue(!$id)
             <div class="card">
-                <a href="{{ route('movies.show', $id) }}">
+                <a href="{{ in_array(strtolower($movie['titleType'] ?? $movie['type'] ?? ''), ['tvseries','tv series','series']) ? route('series.show', $id) : route('movies.show', $id) }}">
                     <img src="{{ $movie['primaryImage'] ?? $movie['image']['url'] ?? 'https://placehold.co/300x450?text=No+Image' }}" alt="{{ $movie['primaryTitle'] ?? 'Poster' }}">
                     <h4>{{ $movie['primaryTitle'] ?? 'Untitled' }}</h4>
                 </a>
