@@ -42,6 +42,15 @@ class ImdbApiService
         return Arr::get($response, 'titles', Arr::get($response, 'results', []));
     }
 
+    public function reviews(string $id, int $limit = 100): array
+    {
+        $response = $this->client()->get("/titles/{$id}/reviews", [
+            'limit' => $limit,
+        ])->throw()->json();
+
+        return Arr::get($response, 'reviews', Arr::get($response, 'results', []));
+    }
+
     protected function client(): PendingRequest
     {
         return Http::baseUrl(rtrim(config('services.imdb.base_url'), '/'))
