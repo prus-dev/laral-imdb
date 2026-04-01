@@ -33,6 +33,22 @@ class ImdbApiService
         return $this->client()->get("/titles/{$id}")->throw()->json();
     }
 
+
+    public function searchPeople(string $query, int $limit = 24): array
+    {
+        $response = $this->client()->get('/search/names', [
+            'query' => $query,
+            'limit' => $limit,
+        ])->throw()->json();
+
+        return Arr::get($response, 'names', Arr::get($response, 'results', []));
+    }
+
+    public function findPersonById(string $id): array
+    {
+        return $this->client()->get("/names/{$id}")->throw()->json();
+    }
+
     public function similar(string $id, int $limit = 12): array
     {
         $response = $this->client()->get("/titles/{$id}/more-like-this", [
