@@ -13,7 +13,7 @@
         .card{background:#1a1c23;padding:10px;border-radius:8px}
         .card img{width:100%;height:260px;object-fit:cover;border-radius:6px}
         .muted{color:#b8b8b8;font-size:.9rem}
-        input,button{padding:10px;border-radius:6px;border:1px solid #333}
+        input,button,textarea{padding:10px;border-radius:6px;border:1px solid #333;background:#11141b;color:#fff}
         button{background:#f5c518;color:#111;font-weight:700;cursor:pointer}
         .flash{background:#273820;color:#b8ffaf;padding:10px;border-radius:6px;margin-bottom:10px}
     </style>
@@ -24,7 +24,8 @@
         <h2><a href="{{ route('home') }}">LaraIMDb</a></h2>
         <nav>
             <a href="{{ route('movies.search') }}">Search</a> |
-            <a href="{{ route('watchlist.index') }}">Watchlist</a>
+            <a href="{{ route('watchlist.index') }}">Watchlist</a> |
+            <a href="{{ route('moderation.reviews.index') }}">Moderator Queue</a>
         </nav>
     </header>
 

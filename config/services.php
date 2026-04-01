@@ -5,4 +5,8 @@ return [
         'base_url' => env('IMDB_API_BASE_URL', 'https://api.imdbapi.dev'),
         'api_key' => env('IMDB_API_KEY'),
     ],
+
+    'review_integrity' => [
+        'ai_spam_detection' => (bool) env('REVIEW_AI_SPAM_DETECTION', false),
+    ],
 ];
