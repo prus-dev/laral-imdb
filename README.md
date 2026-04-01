@@ -7,6 +7,10 @@ A Laravel 12-style IMDb clone using **imdbapi.dev** for live movie/title data.
 - Trending titles homepage
 - Search titles by keyword
 - Title details page with metadata and plot
+- TV series page with seasons, episode calendar, top/lowest episodes, and season rankings
+- Season pages with episode tables, thumbnails, watched toggles, and inline ratings
+- Episode pages with metadata, stills, credits, and discussion entry links
+- Person profile page for cast/crew click-through
 - "More Like This" recommendations
 - Local watchlist with add/remove actions
 - SQLite persistence for watchlist
@@ -41,4 +45,8 @@ IMDB_API_BASE_URL=https://api.imdbapi.dev
 - `/` – trending
 - `/search?q=...` – search
 - `/title/{id}` – detail page
+- `/series/{id}` – series overview
+- `/series/{id}/season/{season}` – season detail
+- `/series/{id}/season/{season}/episode/{episodeId}` – episode detail
+- `/person/{id}` – person profile
 - `/watchlist` – saved watchlist
