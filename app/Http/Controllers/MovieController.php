@@ -3,19 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Services\ImdbApiService;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class MovieController extends Controller
 {
-    public function search(Request $request, ImdbApiService $imdb): View
+    public function search(): View
     {
-        $query = (string) $request->string('q');
-
-        return view('movies.search', [
-            'query' => $query,
-            'results' => $query !== '' ? $imdb->search($query) : [],
-        ]);
+        return view('movies.search');
     }
 
     public function show(string $id, ImdbApiService $imdb): View

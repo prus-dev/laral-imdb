@@ -1,0 +1,27 @@
+<div>
+    <h1>Search Titles</h1>
+
+    <form wire:submit.prevent="search" style="margin-bottom:20px;display:flex;gap:10px">
+        <input
+            type="text"
+            wire:model.live.debounce.300ms="query"
+            placeholder="Search movie, series, cast..."
+            style="flex:1"
+        >
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="grid">
+        @foreach($results as $movie)
+            @php($id = $movie['id'] ?? $movie['tconst'] ?? null)
+            @continue(!$id)
+            <div class="card">
+                <a href="{{ route('movies.show', $id) }}">
+                    <img src="{{ $movie['primaryImage'] ?? $movie['image']['url'] ?? 'https://placehold.co/300x450?text=No+Image' }}" alt="{{ $movie['primaryTitle'] ?? 'Poster' }}">
+                    <h4>{{ $movie['primaryTitle'] ?? 'Untitled' }}</h4>
+                </a>
+                <p class="muted">{{ $movie['titleType'] ?? $movie['type'] ?? 'Title' }} · {{ $movie['startYear'] ?? '—' }}</p>
+            </div>
+        @endforeach
+    </div>
+</div>
