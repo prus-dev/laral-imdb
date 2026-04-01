@@ -1,0 +1,4 @@
+#!/usr/bin/env php
+<?php
+
+echo "Laravel dependencies are not installed in this environment. Run: composer install\n";
