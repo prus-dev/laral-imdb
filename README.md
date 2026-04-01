@@ -5,7 +5,7 @@ A Laravel 12-style IMDb clone using **imdbapi.dev** for live movie/title data.
 ## Features
 
 - Trending titles homepage
-- Search titles by keyword
+- Livewire 4 powered instant search (titles by keyword)
 - Title details page with metadata and plot
 - "More Like This" recommendations
 - Local watchlist with add/remove actions
@@ -20,6 +20,7 @@ The current environment blocks direct package downloads from Packagist/GitHub, s
 ```bash
 cp .env.example .env
 composer install
+php artisan livewire:publish --assets
 php artisan key:generate
 php artisan migrate
 php artisan serve

@@ -17,6 +17,7 @@
         button{background:#f5c518;color:#111;font-weight:700;cursor:pointer}
         .flash{background:#273820;color:#b8ffaf;padding:10px;border-radius:6px;margin-bottom:10px}
     </style>
+    @livewireStyles
 </head>
 <body>
 <div class="container">
@@ -34,5 +35,6 @@
 
     {{ $slot }}
 </div>
+    @livewireScripts
 </body>
 </html>
