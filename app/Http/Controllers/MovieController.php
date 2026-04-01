@@ -27,4 +27,26 @@ class MovieController extends Controller
             'similar' => $imdb->similar($id),
         ]);
     }
+
+    public function browse(Request $request, ImdbApiService $imdb): View
+    {
+        $filters = array_filter([
+            'collection' => (string) $request->string('collection'),
+            'genre' => (string) $request->string('genre'),
+            'mood' => (string) $request->string('mood'),
+            'language' => (string) $request->string('language'),
+            'country' => (string) $request->string('country'),
+            'year' => (string) $request->string('year'),
+            'platform' => (string) $request->string('platform'),
+            'type' => (string) $request->string('type'),
+        ]);
+
+        $sort = (string) $request->string('sort', 'popularity');
+
+        return view('movies.browse', [
+            'filters' => $filters,
+            'sort' => $sort,
+            'results' => $imdb->trending(limit: 48),
+        ]);
+    }
 }
