@@ -16,6 +16,18 @@
         input,button{padding:10px;border-radius:6px;border:1px solid #333}
         button{background:#f5c518;color:#111;font-weight:700;cursor:pointer}
         .flash{background:#273820;color:#b8ffaf;padding:10px;border-radius:6px;margin-bottom:10px}
+
+        .hero{background-size:cover;background-position:center;min-height:280px;border-radius:12px;overflow:hidden;margin-bottom:20px}
+        .hero__overlay{background:linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.3));padding:28px;height:100%}
+        .btn{display:inline-block;background:#f5c518;color:#111;padding:10px 14px;border-radius:8px;font-weight:700}
+        .section{margin:26px 0}
+        .section__header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+        .carousel{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+        .card--tight img{height:210px}
+        .chips{display:flex;flex-wrap:wrap;gap:10px}
+        .chip{display:inline-block;padding:8px 12px;border-radius:999px;background:#1a1c23;color:#fff;border:1px solid #2f3340}
+        .filterbar{display:flex;gap:10px;align-items:center;margin-bottom:16px}
+        select{padding:10px;border-radius:6px;border:1px solid #333;background:#0f1014;color:#fff}
     </style>
 </head>
 <body>
