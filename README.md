@@ -11,6 +11,31 @@ A Laravel 12-style IMDb clone using **imdbapi.dev** for live movie/title data.
 - Local watchlist with add/remove actions
 - SQLite persistence for watchlist
 
+## Product Requirements (Planned)
+
+### 3. Authentication and User Accounts
+
+#### 3.1 Registration
+
+##### Features
+- Email registration
+- Social login
+- Password login
+- Email verification
+- Terms acceptance
+- Age confirmation (where required)
+- Anti-bot protection (CAPTCHA / challenge)
+- Username selection
+- Profile creation after registration
+
+##### Click-by-click user flow
+1. Click **Sign up**.
+2. Select registration method (email, social provider, or password-based account flow).
+3. Fill in the registration form and submit.
+4. Verify email (if required by selected method).
+5. Complete onboarding preferences.
+6. Land on a personalized homepage.
+
 ## Why this repo is scaffolded (and not fully installed)
 
 The current environment blocks direct package downloads from Packagist/GitHub, so dependencies cannot be installed here. Code is structured for Laravel 12; to run locally, install dependencies on a machine with package access.
